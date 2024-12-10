@@ -60,7 +60,7 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
         con.add(titleNamePanel);
         
         titleImg = new JLabel();
-        titleImg.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\title-1.PNG").getImage().getScaledInstance(765, 580, Image.SCALE_SMOOTH)));
+        titleImg.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\title-1.PNG").getImage().getScaledInstance(765, 580, Image.SCALE_SMOOTH)));
         titleNamePanel.add(titleImg);
 
         startButtonPanel = new JPanel();
@@ -90,20 +90,20 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
         
        
         choice1 = new JButton();
-        choice1.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\create.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
+        choice1.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\create.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
         
         choice2 = new JButton();
-        choice2.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\read.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
+        choice2.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\read.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
         
         choice3 = new JButton();
-        choice3.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\update.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
+        choice3.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\update.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
         
         choice4 = new JButton();
-        choice4.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\delete.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
+        choice4.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\delete.PNG").getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH)));
         
         choice5 = new JButton();
         nicoleR = new Random();
-        choice5.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\n-happy.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+        choice5.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\n-happy.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
         
         
         choice1.setBackground(pinkbg);
@@ -296,9 +296,9 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
                 case "back":
                     int rand_int = nicoleR.nextInt(2);
                     if (rand_int==1) {
-                        choice5.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\n-happy.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+                        choice5.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\n-happy.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
                     } else {
-                        choice5.setIcon(new ImageIcon(new ImageIcon("D:\\schootsti-BT303\\OOP\\CRUD GROCERY NICOLE\\nicoleCRUDsystem\\src\\main\\java\\images\\n-pout.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
+                        choice5.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\n-pout.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
                     }
 
                     break;
