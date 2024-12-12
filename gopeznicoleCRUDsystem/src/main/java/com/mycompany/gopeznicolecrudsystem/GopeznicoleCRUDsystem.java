@@ -319,7 +319,7 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
         itemSelector.setForeground(Color.BLACK);
 
         for (GroceryItem item : items) {
-            itemSelector.addItem(item.getId() + ": " + item.getName() + " (₱" + item.getPrice() + ")");
+            itemSelector.addItem(item.getId() + ": " + item.getName() + " ($" + item.getPrice() + ")");
         }
 
         submitButton = new JButton("Checkout");
@@ -367,7 +367,7 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
             cartContents.append(item.toString()).append("\n");
             total += item.getPrice();
         }
-        cartContents.append("\nTotal: ₱").append(total);
+        cartContents.append("\nTotal: $").append(total);
         return cartContents.toString();
     }
     
@@ -456,11 +456,11 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
                     double payment = Double.parseDouble(priceField.getText());
                     if (payment >= total) {
                         double change = payment - total;
-                        JOptionPane.showMessageDialog(window, "Payment successful! Change: ₱" + change);
+                        JOptionPane.showMessageDialog(window, "Payment successful! Change: $" + change);
                         cart.clear();
                         displayArea.setText(getCartContents());
                     } else {
-                        JOptionPane.showMessageDialog(window, "Insufficient payment! Total: ₱" + total);
+                        JOptionPane.showMessageDialog(window, "Insufficient payment! Total: $" + total);
                     }
                     break;
             }
