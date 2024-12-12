@@ -40,12 +40,14 @@ class NicoleFace2 {
 //        09 HANDOUT 1 POLYMORPHISM
 }
 
-
-public class NicoleFace extends NicoleFace2{
+class NicoleFace3 extends NicoleFace2 {
 //    09 HANDOUT 1 POLYMORPHISM
-    NicoleFace nf = new NicoleFace();
-    NicoleFace2 nf2 = nf;
+    NicoleFace3 nf3 = new NicoleFace3();
+    NicoleFace2 nf2 = nf3;
     
+}
+
+public class NicoleFace {
     Random nicoleR;
     Font titleFont = new Font("UD Digi Kyokasho NP-B", Font.PLAIN, 35);
     Font normalFont = new Font("UD Digi Kyokasho NP-B", Font.PLAIN, 25);
@@ -54,5 +56,4 @@ public class NicoleFace extends NicoleFace2{
     Color pinkbg = new Color(196, 67, 80);
     Color darkpinkbg = new Color(172, 89, 107);
     Color eyepinkbg = new Color(224, 76, 98);
-    
 }
