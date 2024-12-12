@@ -38,6 +38,9 @@ class NicoleFace2 {
 //
 //        NicoleFace.java:
 //        09 HANDOUT 1 POLYMORPHISM
+//        MY GITHUB FOR THE PICTURES: https://github.com/maria-nicole/nicoleCRUDsystem/tree/main/gopeznicoleCRUDsystem/src/main/java/images
+//        
+//        FROM LEFT TO RIGHT: CREATE, READ, UPDATE, DELETE, POS SYSTEM
 }
 
 class NicoleFace3 extends NicoleFace2 {
