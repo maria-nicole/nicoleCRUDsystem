@@ -1,5 +1,6 @@
 
 //GopeznicoleCRUDsystem.java
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
@@ -42,7 +43,7 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
     ArrayList<GroceryItem> items = new ArrayList<>();
     String position = "";
 
-    //    02 Handout 1 static method
+    //    02 Handout 1 STATIC METHOD
     public static void main(String[] args) {
         new GopeznicoleCRUDsystem();
     }
@@ -79,7 +80,7 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
         con.add(startButtonPanel);
     }
 
-    //    01 Handout 1 method declaration
+    //    01 Handout 1 METHOD DECLARATION
     public void createCRUDscreen() {
         titleNamePanel.setVisible(false);
         startButtonPanel.setVisible(false);
@@ -265,6 +266,8 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
         mainPanel.removeAll();
         mainPanel.repaint();
         mainPanel.revalidate();
+        
+        displayArea.setBounds(20, 40, 840, 330);
 
         StringBuilder displayText = new StringBuilder("Items in Inventory:\n");
         if (items.isEmpty()) {
@@ -280,129 +283,93 @@ public class GopeznicoleCRUDsystem extends NicoleFace {
     
     private ArrayList<GroceryItem> cart = new ArrayList<>();
 
-private void posSystem() {
-    mainPanel.removeAll();
-    crudPanel.setBounds(55, 15, 880, 150);
-    mainPanel.setBounds(55, 180, 880, 400);
-    mainPanel.repaint();
-    mainPanel.revalidate();
+    private void posSystem() {
+        mainPanel.removeAll();
+        crudPanel.setBounds(55, 15, 880, 150);
+        mainPanel.setBounds(55, 180, 880, 400);
+        mainPanel.repaint();
+        mainPanel.revalidate();
 
-    displayArea.setBounds(20, 40, 350, 330);
+        displayArea.setBounds(20, 40, 350, 330);
 
-    inputPanel = new JPanel();
-    inputPanel.setBounds(420, 15, 450, 360);
-    inputPanel.setBackground(darkpinkbg);
-    inputPanel.setLayout(new GridLayout(6, 2, 10, 10)); 
-    mainPanel.add(inputPanel);
+        inputPanel = new JPanel();
+        inputPanel.setBounds(420, 15, 450, 360);
+        inputPanel.setBackground(darkpinkbg);
+        inputPanel.setLayout(new GridLayout(6, 2, 10, 10)); 
+        mainPanel.add(inputPanel);
 
-    JLabel cartLabel = new JLabel("Cart Items:");
-    cartLabel.setFont(normalFont);
-    cartLabel.setForeground(Color.WHITE);
+        JLabel cartLabel = new JLabel("Cart Items:");
+        cartLabel.setFont(normalFont);
+        cartLabel.setForeground(Color.WHITE);
 
-    displayArea.setText(getCartContents());
+        displayArea.setText(getCartContents());
 
-    JLabel paymentLabel = new JLabel("Payment:");
-    paymentLabel.setFont(normalFont);
-    paymentLabel.setForeground(Color.WHITE);
+        JLabel paymentLabel = new JLabel("Payment:");
+        paymentLabel.setFont(normalFont);
+        paymentLabel.setForeground(Color.WHITE);
 
-    priceField = new JTextField();
-    priceField.setFont(normalFont);
-    priceField.setBackground(Color.LIGHT_GRAY);
-    priceField.setForeground(Color.BLACK);
+        priceField = new JTextField();
+        priceField.setFont(normalFont);
+        priceField.setBackground(Color.LIGHT_GRAY);
+        priceField.setForeground(Color.BLACK);
 
-    JComboBox<String> itemSelector = new JComboBox<>();
-    itemSelector.setFont(normalFont); 
-    itemSelector.setBackground(Color.LIGHT_GRAY); 
-    itemSelector.setForeground(Color.BLACK);
+        JComboBox<String> itemSelector = new JComboBox<>();
+        itemSelector.setFont(normalFont); 
+        itemSelector.setBackground(Color.LIGHT_GRAY); 
+        itemSelector.setForeground(Color.BLACK);
 
-    for (GroceryItem item : items) {
-        itemSelector.addItem(item.getId() + ": " + item.getName() + " ($" + item.getPrice() + ")");
-    }
-
-    submitButton = new JButton("Checkout");
-    submitButton.setFont(normalFont);
-    submitButton.setBackground(eyepinkbg);
-    submitButton.setForeground(Color.WHITE);
-    submitButton.setActionCommand("checkout");
-    submitButton.addActionListener(new FormSubmitHandler());
-
-    addItemToCartButton = new JButton("Add to Cart");
-    addItemToCartButton.setFont(normalFont);
-    addItemToCartButton.setBackground(eyepinkbg);
-    addItemToCartButton.setForeground(Color.WHITE);
-    addItemToCartButton.setActionCommand("addToCart");
-    addItemToCartButton.addActionListener(e -> {
-        int selectedIndex = itemSelector.getSelectedIndex();
-        if (selectedIndex >= 0) {
-            cart.add(items.get(selectedIndex));
-            displayArea.setText(getCartContents());
+        for (GroceryItem item : items) {
+            itemSelector.addItem(item.getId() + ": " + item.getName() + " ($" + item.getPrice() + ")");
         }
-    });
 
-    inputPanel.add(cartLabel);
-    inputPanel.add(new JLabel()); // Empty cell
-    inputPanel.add(new JLabel("Select Item:"));
-    inputPanel.add(itemSelector);
-    inputPanel.add(new JLabel()); 
-    inputPanel.add(addItemToCartButton);
-    inputPanel.add(paymentLabel);
-    inputPanel.add(priceField);
-    inputPanel.add(new JLabel()); 
-    inputPanel.add(submitButton);
+        submitButton = new JButton("Checkout");
+        submitButton.setFont(normalFont);
+        submitButton.setBackground(eyepinkbg);
+        submitButton.setForeground(Color.WHITE);
+        submitButton.setActionCommand("checkout");
+        submitButton.addActionListener(new FormSubmitHandler());
 
-    mainPanel.add(displayArea);
-}
+        addItemToCartButton = new JButton("Add to Cart");
+        addItemToCartButton.setFont(normalFont);
+        addItemToCartButton.setBackground(eyepinkbg);
+        addItemToCartButton.setForeground(Color.WHITE);
+        addItemToCartButton.setActionCommand("addToCart");
+        addItemToCartButton.addActionListener(e -> {
+            int selectedIndex = itemSelector.getSelectedIndex();
+            if (selectedIndex >= 0) {
+                cart.add(items.get(selectedIndex));
+                displayArea.setText(getCartContents());
+            }
+        });
 
-private String getCartContents() {
-    if (cart.isEmpty()) {
-        return "Cart is empty.";
+        inputPanel.add(cartLabel);
+        inputPanel.add(new JLabel()); 
+        inputPanel.add(new JLabel("Select Item:"));
+        inputPanel.add(itemSelector);
+        inputPanel.add(new JLabel()); 
+        inputPanel.add(addItemToCartButton);
+        inputPanel.add(paymentLabel);
+        inputPanel.add(priceField);
+        inputPanel.add(new JLabel()); 
+        inputPanel.add(submitButton);
+
+        mainPanel.add(displayArea);
     }
 
-    StringBuilder cartContents = new StringBuilder("Cart Contents:\n");
-    double total = 0;
-    for (GroceryItem item : cart) {
-        cartContents.append(item.toString()).append("\n");
-        total += item.getPrice();
-    }
-    cartContents.append("\nTotal: $").append(total);
-    return cartContents.toString();
-}
-
-private class FormSubmitHandler implements ActionListener {
-    public void actionPerformed(ActionEvent e) {
-        String operation = e.getActionCommand();
-
-        switch (operation) {
-            case "create":
-                int id = Integer.parseInt(idField.getText());
-                String name = nameField.getText();
-                double price = Double.parseDouble(priceField.getText());
-                items.add(new GroceryItem(id, name, price));
-                JOptionPane.showMessageDialog(window, "Item added successfully!");
-                break;
-            case "checkout":
-                if (cart.isEmpty()) {
-                    JOptionPane.showMessageDialog(window, "Cart is empty!");
-                    return;
-                }
-
-                double total = cart.stream().mapToDouble(GroceryItem::getPrice).sum();
-                double payment = Double.parseDouble(priceField.getText());
-                if (payment >= total) {
-                    double change = payment - total;
-                    JOptionPane.showMessageDialog(window, "Payment successful! Change: $" + change);
-                    cart.clear();
-                    displayArea.setText(getCartContents());
-                } else {
-                    JOptionPane.showMessageDialog(window, "Insufficient payment! Total: $" + total);
-                }
-                break;
+    private String getCartContents() {
+        if (cart.isEmpty()) {
+            return "Cart is empty.";
         }
+
+        StringBuilder cartContents = new StringBuilder("Cart Contents:\n");
+        double total = 0;
+        for (GroceryItem item : cart) {
+            cartContents.append(item.toString()).append("\n");
+            total += item.getPrice();
+        }
+        cartContents.append("\nTotal: $").append(total);
+        return cartContents.toString();
     }
-}
-    
-    
-    
     
     
     //    08 Handout 1  INTERFACES (ActionListener is a listener interface part of java.awt package)
@@ -422,7 +389,8 @@ private class FormSubmitHandler implements ActionListener {
                 case "delete":
                     showInputForm(command);
                     break;
-                case "back":
+                case "pos":
+                    posSystem();
                     int rand_int = nicoleR.nextInt(2);
                     if (rand_int==1) {
                         choice5.setIcon(new ImageIcon(new ImageIcon("D:\\GitHub\\nicoleCRUDsystem\\gopeznicoleCRUDsystem\\src\\main\\java\\images\\n-happy.PNG").getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH)));
@@ -434,33 +402,66 @@ private class FormSubmitHandler implements ActionListener {
             }
         }
     }
-
-    private class FormSubmitHandler implements ActionListener {
+    
+        private class FormSubmitHandler implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String operation = e.getActionCommand();
-            int id = Integer.parseInt(idField.getText());
-            String name = nameField.getText();
-            double price = Double.parseDouble(priceField.getText());
 
             switch (operation) {
                 case "create":
+                    int id = Integer.parseInt(idField.getText());
+                    String name = nameField.getText();
+                    double price = Double.parseDouble(priceField.getText());
                     items.add(new GroceryItem(id, name, price));
                     JOptionPane.showMessageDialog(window, "Item added successfully!");
                     break;
+
                 case "update":
+                    int updateId = Integer.parseInt(idField.getText());
+                    String updatedName = nameField.getText();
+                    double updatedPrice = Double.parseDouble(priceField.getText());
+
+                    boolean itemFound = false;
                     for (GroceryItem item : items) {
-                        if (item.getId() == id) {
-                            item.setName(name);
-                            item.setPrice(price);
+                        if (item.getId() == updateId) {
+                            item.setName(updatedName);
+                            item.setPrice(updatedPrice);
                             JOptionPane.showMessageDialog(window, "Item updated successfully!");
-                            return;
+                            itemFound = true;
+                            break;
                         }
                     }
-                    JOptionPane.showMessageDialog(window, "Item not found!");
+                    if (!itemFound) {
+                        JOptionPane.showMessageDialog(window, "Item not found!");
+                    }
                     break;
+
                 case "delete":
-                    items.removeIf(item -> item.getId() == id);
-                    JOptionPane.showMessageDialog(window, "Item deleted successfully!");
+                    int deleteId = Integer.parseInt(idField.getText());
+                    boolean removed = items.removeIf(item -> item.getId() == deleteId);
+                    if (removed) {
+                        JOptionPane.showMessageDialog(window, "Item deleted successfully!");
+                    } else {
+                        JOptionPane.showMessageDialog(window, "Item not found!");
+                    }
+                    break;
+
+                case "checkout":
+                    if (cart.isEmpty()) {
+                        JOptionPane.showMessageDialog(window, "Cart is empty!");
+                        return;
+                    }
+
+                    double total = cart.stream().mapToDouble(GroceryItem::getPrice).sum();
+                    double payment = Double.parseDouble(priceField.getText());
+                    if (payment >= total) {
+                        double change = payment - total;
+                        JOptionPane.showMessageDialog(window, "Payment successful! Change: $" + change);
+                        cart.clear();
+                        displayArea.setText(getCartContents());
+                    } else {
+                        JOptionPane.showMessageDialog(window, "Insufficient payment! Total: $" + total);
+                    }
                     break;
             }
         }

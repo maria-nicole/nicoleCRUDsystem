@@ -1,5 +1,6 @@
 
 //GroceryItem.java
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -10,6 +11,7 @@ package com.mycompany.gopeznicolecrudsystem;
  *
  * @author Administrator
  */
+
 //    07 Handout 1  ABSTRACT CLASSES
 abstract class NameSet {
     public abstract void setName(String name);
@@ -28,7 +30,7 @@ class GroceryItem extends NameSet{
         this.price = price;
     }
     
-    //    005 Handout 1 ENCAPSULATION
+    //    05 Handout 1 ENCAPSULATION
     public int getId() {
         return id;
     }
